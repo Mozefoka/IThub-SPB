@@ -1,0 +1,43 @@
+@use '@/styles/variables' as *;
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: $color-white;
+  background-color: $color-black;
+}
+
+.container {
+  max-width: 950px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.title-lg {
+  font-weight: 700;
+  font-size: 45px;
+  line-height: 50px;
+
+  @media (max-width: 959px) {
+    font-size: 35px;
+    line-height: 40px;
+  }
+
+  @media (max-width: 639px) {
+    font-size: 25px;
+    line-height: 30px;
+  }
+}
+
+.title-md {
+  font-weight: 700;
+  font-size: clamp(25px, 2vw, 35px);
+  line-height: clamp(25px, 2vw, 35px);
+}
+
+.title-s {
+  font-weight: 700;
+  font-size: clamp(14px, 1.5vw, 18px);
+  line-height: clamp(16px, 2vw, 20px);
+  opacity: 0.3;
+}
