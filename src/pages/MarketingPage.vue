@@ -11,7 +11,7 @@ import LeadForm from '@/components/LeadForm.vue'
 <template>
   <main class="marketing">
     <HeroMarketing />
-<!--    <SuccessStories />-->
+    <SuccessStories />
     <TeachingApproach />
     <StudentProjects />
     <StudyProgram />
