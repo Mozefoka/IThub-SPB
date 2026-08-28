@@ -6,6 +6,7 @@ import StudentProjects from '@/components/StudentProjects.vue'
 import StudyProgram from '@/components/StudyProgram.vue'
 import BaseFaq from '@/components/BaseFaq.vue'
 import LeadForm from '@/components/LeadForm.vue'
+import { marketingCards } from '@/data/marketing'
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import LeadForm from '@/components/LeadForm.vue'
     <SuccessStories />
     <TeachingApproach />
     <StudentProjects />
-    <StudyProgram />
+    <StudyProgram :cards="marketingCards" zoom="zoom" />
     <LeadForm />
     <BaseFaq />
   </main>

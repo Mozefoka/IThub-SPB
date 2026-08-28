@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonCta from '@/components/ui/ButtonCta.vue'
 
-interface Cards {
+interface Card {
   id: number
   title: string
   description: string
@@ -11,63 +11,16 @@ interface Cards {
   links: string[]
 }
 
-const cards: Cards[] = [
-  {
-    id: 1,
-    title: 'Интернет-маркетолог',
-    description:
-      'Помогает бизнесу находить клиентов, увеличивать продажи и понимать, какие инструменты работают',
-    features: [
-      'Научишься разрабатывать маркетинговые стратегии для бизнеса',
-      'Освоишь анализ рынка, конкурентов и целевой аудитории',
-      'Научишься разрабатывать маркетинговые стратегии для бизнеса',
-      'Запустишь рекламные кампании в Яндекс и VK и научишься оценивать их эффективность',
-      'Погрузишься в веб-аналитику, CRM и инструменты принятия маркетинговых решений',
-    ],
-    tags: [
-      'Разработка маркетинговой стратегии',
-      'Контент-маркетинг',
-      'Email-маркетинг',
-      'Веб-аналитика',
-      'Медиапланирование',
-      'SEO',
-      'Управление репутацией',
-      'Анализ ЦА',
-      'Таргетинг',
-    ],
-    code: 'ФГОС 42.02.01',
-    links: ['Программа на базе 9 классов', 'Программа на базе 11 классов'],
-  },
+interface Props {
+  cards: Card[]
+  zoom?: 'zoom'
+}
 
-  {
-    id: 2,
-    title: 'SMM-специалист',
-    description:
-      'Создаёт контент, который привлекает внимание, собирает сообщество и приносит бизнесу клиентов',
-    features: [
-      'Научишься разрабатывать маркетинговые стратегии для бизнеса',
-      'Освоишь анализ рынка, конкурентов и целевой аудитории',
-      'Научишься разрабатывать маркетинговые стратегии для бизнеса',
-      'Запустишь рекламные кампании в Яндекс и VK и научишься оценивать их эффективность',
-      'Погрузишься в веб-аналитику, CRM и инструменты принятия маркетинговых решений',
-    ],
-    tags: [
-      'Контент-маркетинг',
-      'Основы графических редакторов',
-      'Таргетинг',
-      'Ведение блога',
-      'Аналитика статистики постов',
-      'SMM',
-      'Управление сообществами',
-    ],
-    code: 'ФГОС 42.02.01',
-    links: ['Программа на базе 9 классов', 'Программа на базе 11 классов'],
-  },
-]
+const props = defineProps<Props>()
 </script>
 
 <template>
-  <section class="study-program">
+  <section class="study-program" :class="[`study-program--${props.zoom}`]">
     <div class="container">
       <div class="study-program__intro">
         <h2 class="study-program__title title-md">Следующий кейс может быть твоим!</h2>
@@ -76,7 +29,7 @@ const cards: Cards[] = [
         </p>
       </div>
 
-      <article v-for="card in cards" class="profession-card" :key="card.id">
+      <article v-for="card in props.cards" class="profession-card" :key="card.id">
         <div class="profession-card__header">
           <h3 class="profession-card__title">{{ card.title }}</h3>
           <p class="profession-card__description">
@@ -129,9 +82,11 @@ const cards: Cards[] = [
 @use '@/styles/mixins' as *;
 
 .study-program {
-  @include adaptive-zoom;
-
   margin-bottom: $margin-bottom;
+
+  &--zoom {
+    @include adaptive-zoom;
+  }
 
   &__intro {
     max-width: 500px;

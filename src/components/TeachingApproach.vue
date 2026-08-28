@@ -158,7 +158,7 @@ const currentBlock = computed(() =>
 
             <BenefitsBlock
               v-if="currentBlock.benefits?.length"
-              heading="Что получают студенты?"
+              title="Что получают студенты?"
               :benefits="currentBlock.benefits"
             />
           </div>

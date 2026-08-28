@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import type { Swiper as SwiperInstance } from 'swiper'
+import { Autoplay } from 'swiper/modules'
 
 import 'swiper/css'
 
@@ -31,10 +32,15 @@ const nextSlide = () => {
     ></button>
 
     <Swiper
+      :modules="[Autoplay]"
       class="base-slider__swiper"
       :slides-per-view="1"
       :space-between="0"
       :speed="500"
+      :autoplay="{
+        delay: 5000,
+        disableOnInteraction: false,
+      }"
       loop
       @swiper="swiper = $event"
     >
@@ -59,28 +65,19 @@ const nextSlide = () => {
   align-items: center;
 
   &__swiper {
-    max-width: 300px;
     width: 100%;
     border-radius: 15px;
     overflow: hidden;
-
-    @media (max-width: 639px) {
-      max-width: 235px;
-    }
-
-    @media (max-width: 429px) {
-      max-width: 200px;
-    }
-
-    @media (max-width: 379px) {
-      max-width: 150px;
-    }
   }
 
   &__slide {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    img {
+      object-fit: cover;
+    }
   }
 
   &__image {

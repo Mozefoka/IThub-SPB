@@ -66,7 +66,11 @@ const projects: Project[] = [
         <p class="student-projects__description">{{ project.description }}</p>
       </div>
 
-      <BaseSlider :images="['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp']" />
+      <div class="student-projects__slider">
+        <BaseSlider
+          :images="['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp']"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -124,6 +128,22 @@ const projects: Project[] = [
   &__description {
     font-size: clamp(12px, 1vw, 14px);
     line-height: 15px;
+  }
+
+  &__slider {
+    max-width: 400px;
+
+    @media (max-width: 639px) {
+      max-width: 235px;
+    }
+
+    @media (max-width: 429px) {
+      max-width: 200px;
+    }
+
+    @media (max-width: 379px) {
+      max-width: 150px;
+    }
   }
 }
 </style>

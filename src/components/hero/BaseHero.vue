@@ -57,6 +57,7 @@ const props = defineProps<Props>()
 
   position: relative;
   overflow: hidden;
+  margin-bottom: $margin-bottom;
 
   &__star {
     position: absolute;
@@ -173,12 +174,15 @@ const props = defineProps<Props>()
   }
 
   &__left-image {
+    max-width: 180px;
     position: absolute;
     left: 0;
     bottom: 0;
   }
 
   &__right-image {
+    max-width: 150px;
+    position: absolute;
     top: 0;
     right: 0;
   }
