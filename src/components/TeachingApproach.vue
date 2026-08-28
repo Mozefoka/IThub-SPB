@@ -33,7 +33,7 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
       'Реальный кейс для портфолио и обратную связь от практикующих специалистов',
     ],
     type: 'video',
-    media: '/src/assets/video/oiia.mp4',
+    media: 'src/assets/video/oiia.mp4',
   },
 
   {
@@ -43,7 +43,7 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
     guests: [
       {
         name: 'Александра Воронина',
-        photo: '/src/assets/images/alexandra.webp',
+        photo: 'src/assets/images/alexandra.webp',
         subscribers: '42.9 тыс. подписчиков',
       },
 
@@ -57,7 +57,7 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
       'Яна пригласила на занятие Кристину Гулину и Марию Яцемирскую — практикующих инфлюенсеров и создателей контента. Они поделились опытом создания контента, развития аудитории, работы с брендами и монетизации личного блога',
     ],
     type: 'video',
-    media: '/src/assets/video/oiia.mp4',
+    media: 'https://kinescope.io/hE7Y98Eb6T85QTSe1dxUaR',
   },
 
   {
@@ -68,7 +68,7 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
       'На занятии студенты работали с реальными кейсами от рестораторов и отельеров: разбирали задачи бизнеса, предлагали решения и погружались в настоящие бизнес-процессы',
     ],
     type: 'image',
-    media: '/src/assets/images/team.jpg',
+    media: 'src/assets/images/team.jpg',
   },
 
   {
@@ -81,7 +81,7 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
       'Свои решения они защитили перед экспертным жюри — генеральным директором предприятия, преподавателями и представителями digital-индустрии. После защиты студентов пригласили на экскурсию по производству, где 8 участников проекта получили предложения о стажировке',
     ],
     type: 'image',
-    media: '/src/assets/images/team.jpg',
+    media: 'src/assets/images/team.jpg',
   },
 ])
 
@@ -164,16 +164,24 @@ const currentBlock = computed(() =>
           </div>
 
           <div class="teaching-approach__media">
-            <video
-              v-if="currentBlock.type === 'video'"
-              :key="currentBlock.id"
-              :src="currentBlock.media"
-              class="teaching-approach__media-item"
-              autoplay
-              loop
-              muted
-              playsinline
-            />
+            <div v-if="currentBlock.type === 'video'" class="teaching-approach__media-video">
+              <video
+                v-if="currentBlock.media.endsWith('.mp4')"
+                class="teaching-approach__media-item"
+                :src="currentBlock.media"
+                autoplay
+                muted
+                loop
+                playsinline
+              />
+              <iframe
+                v-else
+                class="teaching-approach__media-item"
+                :key="currentBlock.id"
+                :src="`${currentBlock.media}?background=1`"
+                allow="autoplay"
+              />
+            </div>
             <img
               v-else
               :src="currentBlock.media"
@@ -266,7 +274,7 @@ const currentBlock = computed(() =>
   &__panel-body {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 30px;
     grid-area: body;
   }
 
@@ -292,8 +300,7 @@ const currentBlock = computed(() =>
 
     img {
       width: 100%;
-      height: 100%;
-      object-fit: contain;
+      object-fit: cover;
     }
   }
 
@@ -341,7 +348,8 @@ const currentBlock = computed(() =>
     height: 70px;
 
     img {
-      object-fit: contain;
+      width: 100%;
+      object-fit: cover;
     }
   }
 
@@ -352,6 +360,7 @@ const currentBlock = computed(() =>
   }
 
   &__guest-badge {
+    max-width: 140px;
     position: relative;
     left: -25px;
     z-index: -1;
@@ -386,6 +395,10 @@ const currentBlock = computed(() =>
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &__media-video {
+    height: 100%;
   }
 }
 </style>

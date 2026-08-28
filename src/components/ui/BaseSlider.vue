@@ -8,6 +8,7 @@ import 'swiper/css'
 
 interface Props {
   images: string[]
+  slim?: 'slim'
 }
 
 const props = defineProps<Props>()
@@ -45,7 +46,12 @@ const nextSlide = () => {
       @swiper="swiper = $event"
     >
       <SwiperSlide v-for="(image, index) in props.images" :key="index" class="base-slider__slide">
-        <img :src="image" :alt="`Слайд ${index + 1}`" class="base-slider__image" />
+        <img
+          :src="image"
+          :alt="`Слайд ${index + 1}`"
+          class="base-slider__image"
+          :class="`base-slider__image--${props.slim}`"
+        />
       </SwiperSlide>
     </Swiper>
 
@@ -74,14 +80,27 @@ const nextSlide = () => {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    img {
-      object-fit: cover;
-    }
   }
 
   &__image {
+    width: 100%;
     object-fit: cover;
+
+    &--slim {
+      height: 300px;
+
+      @media (max-width: 959px) {
+        height: 250px;
+      }
+
+      @media (max-width: 769px) {
+        height: 200px;
+      }
+
+      @media (max-width: 639px) {
+        height: 270px;
+      }
+    }
   }
 
   &__button {

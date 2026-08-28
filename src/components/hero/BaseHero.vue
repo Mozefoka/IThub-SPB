@@ -7,32 +7,35 @@ interface Props {
   mainImage: string
   leftImage?: string
   rightImage?: string
+  keyboard?: 'keyboard'
+  zoom?: 'zoom'
+  star: 'primary' | 'secondary'
 }
 
 const props = defineProps<Props>()
 </script>
 
 <template>
-  <section class="hero">
-    <div class="hero__star hero__star--left">
+  <section class="hero" :class="`hero--${props.zoom}`">
+    <div class="hero__star" :class="`hero__star--${props.star}`">
       <img src="@/assets/icons/purple-star.svg" alt="Звезда" />
     </div>
 
     <div class="hero__inner">
-      <div class="hero__main-image">
+      <div class="hero__main-image" :class="`hero__main-image--${props.keyboard}`">
         <img :src="props.mainImage" alt="Главная картинка" />
       </div>
 
       <div class="hero__content">
         <div v-if="props.leftImage" class="hero__left-image">
-          <img :src="props.leftImage" alt="Картинка" class="hero__left-image" />
+          <img :src="props.leftImage" alt="Картинка" />
         </div>
 
         <div class="hero__text">
           <div class="hero__title-img">
             <img :src="props.title" alt="Заголовок" />
           </div>
-          <p class="title-s">{{ props.subtitle }}</p>
+          <p class="hero__text-subtitle">{{ props.subtitle }}</p>
           <ButtonCta size="small" variant="secondary">Поступить</ButtonCta>
         </div>
 
@@ -53,11 +56,27 @@ const props = defineProps<Props>()
 @use '@/styles/mixins' as *;
 
 .hero {
-  @include hero-zoom;
+  @include zoom;
 
   position: relative;
   overflow: hidden;
   margin-bottom: $margin-bottom;
+
+  &--zoom {
+    zoom: 1.6;
+
+    @media (max-width: 1549px) {
+      zoom: 1.4;
+    }
+
+    @media (max-width: 1349px) {
+      zoom: 1.2;
+    }
+
+    @media (max-width: 1179px) {
+      zoom: 1;
+    }
+  }
 
   &__star {
     position: absolute;
@@ -78,7 +97,7 @@ const props = defineProps<Props>()
       max-width: 250px;
     }
 
-    &--left {
+    &--primary {
       top: -150px;
       left: -150px;
 
@@ -102,6 +121,27 @@ const props = defineProps<Props>()
 
       @media (max-width: 390px) {
         right: 60px;
+      }
+    }
+
+    &--secondary {
+      top: -150px;
+      left: -150px;
+
+      @media (max-width: 639px) {
+        max-width: 200px;
+        top: -5%;
+        left: 40%;
+      }
+
+      @media (max-width: 499px) {
+        max-width: 150px;
+        left: 41%;
+      }
+
+      @media (max-width: 399px) {
+        max-width: 120px;
+        left: 40%;
       }
     }
 
@@ -129,7 +169,7 @@ const props = defineProps<Props>()
     margin-top: -100px;
     margin-bottom: -25px;
     transform: rotate(-10deg);
-    z-index: 5;
+    z-index: 2;
 
     @media (max-width: 639px) {
       transform: rotate(-5deg);
@@ -137,6 +177,23 @@ const props = defineProps<Props>()
 
     @media (max-width: 599px) {
       margin-top: -25px;
+    }
+
+    &--keyboard {
+      transform: rotate(170deg);
+
+      @media (max-width: 639px) {
+        margin-top: -70px;
+        transform: rotate(175deg);
+      }
+
+      @media (max-width: 599px) {
+        margin-top: -70px;
+      }
+
+      @media (max-width: 499px) {
+        margin-top: -40px;
+      }
     }
 
     img {
@@ -154,6 +211,19 @@ const props = defineProps<Props>()
     flex-direction: column;
     align-items: center;
     gap: 20px;
+  }
+
+  &__text-subtitle {
+    max-width: 270px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.2;
+    opacity: 0.3;
+    text-align: center;
+
+    @media (max-width: 439px) {
+      font-size: 16px;
+    }
   }
 
   &__title-img {
@@ -174,17 +244,47 @@ const props = defineProps<Props>()
   }
 
   &__left-image {
-    max-width: 180px;
+    max-width: 200px;
     position: absolute;
-    left: 0;
+    left: -40%;
     bottom: 0;
+    z-index: 3;
+
+    @media (max-width: 959px) {
+      left: -3%;
+      bottom: -65%;
+    }
+
+    @media (max-width: 469px) {
+      max-width: 150px;
+      left: 5%;
+      bottom: -45%;
+    }
+
+    @media (max-width: 439px) {
+      max-width: 130px;
+      left: -10%;
+      bottom: -50%;
+    }
   }
 
   &__right-image {
     max-width: 150px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -15%;
+    right: -15%;
+    z-index: 3;
+
+    @media (max-width: 699px) {
+      top: -25%;
+      right: 0;
+    }
+
+    @media (max-width: 439px) {
+      max-width: 120px;
+      top: -30%;
+      right: -10%;
+    }
   }
 }
 </style>

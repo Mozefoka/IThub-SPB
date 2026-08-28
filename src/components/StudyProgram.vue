@@ -14,6 +14,7 @@ interface Card {
 interface Props {
   cards: Card[]
   zoom?: 'zoom'
+  image?: string
 }
 
 const props = defineProps<Props>()
@@ -21,6 +22,10 @@ const props = defineProps<Props>()
 
 <template>
   <section class="study-program" :class="[`study-program--${props.zoom}`]">
+    <div v-if="props.image" class="study-program__top-image">
+      <img :src="props.image" alt="Диск">
+    </div>
+
     <div class="container">
       <div class="study-program__intro">
         <h2 class="study-program__title title-md">Следующий кейс может быть твоим!</h2>
@@ -86,6 +91,13 @@ const props = defineProps<Props>()
 
   &--zoom {
     @include adaptive-zoom;
+  }
+
+  &__top-image {
+    max-width: 500px;
+    position: relative;
+    left: 60%;
+    transform: translateX(-60%);
   }
 
   &__intro {

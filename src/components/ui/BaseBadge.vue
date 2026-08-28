@@ -57,5 +57,9 @@ const props = withDefaults(
       border: solid 1px $color-white;
     }
   }
+
+  &__text {
+    font-weight: 600;
+  }
 }
 </style>

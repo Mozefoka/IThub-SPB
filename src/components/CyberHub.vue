@@ -17,12 +17,23 @@ const props = defineProps<Cyberhub>()
         <div class="cyberhub__preview">
           <img src="@/assets/images/psp.webp" alt="PSP" class="cyberhub__preview-image" />
 
+          <video
+            v-if="props.video.endsWith('.mp4')"
+            :src="props.video"
+            class="cyberhub__preview-video"
+            controlsList="nodownload"
+            controls
+            playsinline
+            @contextmenu.prevent
+          ></video>
+
           <iframe
+            v-else
             :src="props.video"
             class="cyberhub__preview-video"
             allow="fullscreen; picture-in-picture"
             allowfullscreen
-          ></iframe>
+          />
         </div>
       </div>
     </div>
@@ -34,7 +45,7 @@ const props = defineProps<Cyberhub>()
 @use '@/styles/mixins' as *;
 
 .cyberhub {
-  @include hero-zoom;
+  @include zoom;
 
   margin-bottom: $margin-bottom;
 
@@ -52,9 +63,9 @@ const props = defineProps<Cyberhub>()
     font-weight: 700;
     font-size: 35px;
 
-      @media (max-width: 399px) {
-        font-size: 26px;
-      }
+    @media (max-width: 399px) {
+      font-size: 26px;
+    }
   }
 
   &__description {

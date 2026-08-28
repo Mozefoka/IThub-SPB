@@ -4,6 +4,8 @@ import StudentCases from '@/components/StudentCases.vue'
 import CyberHub from '@/components/CyberHub.vue'
 import StudyProgram from '@/components/StudyProgram.vue'
 import { gamedevCards } from '@/data/gamedev.ts'
+import GameProjects from '@/components/GameProjects.vue'
+import LeadForm from '@/components/LeadForm.vue'
 </script>
 
 <template>
@@ -12,6 +14,7 @@ import { gamedevCards } from '@/data/gamedev.ts'
       title="src/assets/icons/gamedev-title.svg"
       subtitle="Набор 2026: 80% мест уже занято"
       main-image="src/assets/images/gamepad.webp"
+      star="primary"
     />
 
     <StudentCases title="Почему у наших студентов получается" />
@@ -22,7 +25,11 @@ import { gamedevCards } from '@/data/gamedev.ts'
       video="https://kinescope.io/tzPFG64ZZrK1wUQWgg4L4m"
     />
 
-    <StudyProgram :cards="gamedevCards" />
+    <GameProjects title="Вы только посмотрите на проекты наших ребят" />
+
+    <StudyProgram :cards="gamedevCards" image="src/assets/images/disc.png" />
+
+    <LeadForm />
   </main>
 </template>
 

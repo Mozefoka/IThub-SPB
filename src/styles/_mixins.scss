@@ -18,7 +18,7 @@
   }
 }
 
-@mixin hero-zoom {
+@mixin zoom {
   zoom: 1.6;
 
   @media (max-width: 1429px) {
@@ -36,8 +36,4 @@
   @media (max-width: 639px) {
     zoom: 1;
   }
-
-  //@media (max-width: 500px) {
-  //  zoom: 1.4;
-  //}
 }

@@ -9,6 +9,9 @@ import BaseHero from '@/components/hero/BaseHero.vue'
     main-image="src/assets/images/keyboard.webp"
     left-image="src/assets/icons/enter-delete-keys.png"
     right-image="src/assets/icons/alt-esc-keys.png"
+    keyboard="keyboard"
+    zoom="zoom"
+    star="secondary"
   />
 </template>
 
