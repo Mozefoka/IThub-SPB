@@ -7,6 +7,13 @@ interface FaqItem {
   answer: string
 }
 
+const props = defineProps({
+  img: {
+    type: String,
+    required: false,
+  }
+})
+
 const faqItems = ref<FaqItem[]>([
   {
     id: 1,
@@ -75,6 +82,10 @@ const getMaxHeight = (index: number, id: number) => {
 <template>
   <section class="faq">
     <div class="container">
+      <div v-if="props.img" class="faq__image">
+        <img :src="props.img" alt="Спроси">
+      </div>
+
       <h2 class="faq__title title-lg">Часто задаваемые вопросы</h2>
 
       <div class="faq__list">
@@ -109,6 +120,16 @@ const getMaxHeight = (index: number, id: number) => {
 @use '@/styles/variables' as *;
 
 .faq {
+
+  &__image {
+    max-width: 320px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+
   &__title {
     text-align: center;
     margin-bottom: 30px;

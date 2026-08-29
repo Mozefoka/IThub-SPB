@@ -14,6 +14,7 @@ interface Card {
 interface Props {
   cards: Card[]
   zoom?: 'zoom'
+  container?: 'wide'
   image?: string
 }
 
@@ -23,10 +24,10 @@ const props = defineProps<Props>()
 <template>
   <section class="study-program" :class="[`study-program--${props.zoom}`]">
     <div v-if="props.image" class="study-program__top-image">
-      <img :src="props.image" alt="Диск">
+      <img :src="props.image" alt="Диск" />
     </div>
 
-    <div class="container">
+    <div class="container" :class="`container--${props.container}`">
       <div class="study-program__intro">
         <h2 class="study-program__title title-md">Следующий кейс может быть твоим!</h2>
         <p class="study-program__subtitle">
@@ -236,6 +237,7 @@ const props = defineProps<Props>()
 
   &__tag {
     padding: 10px;
+    margin: auto 0;
     font-size: 14px;
     background-color: $color-light-dark;
     border-radius: 20px;

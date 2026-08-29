@@ -39,6 +39,13 @@ interface PhoneInputEvent extends Event {
   target: EventTarget | null
 }
 
+interface Props {
+  title: string
+  btnVariant?: 'primary' | 'secondary'
+}
+
+const props = defineProps<Props>()
+
 const emit = defineEmits<{
   (event: 'submit', payload: SubmitPayload): void
 }>()
@@ -251,7 +258,7 @@ onBeforeUnmount(() => {
     <div class="container">
       <div class="lead-form__grid">
         <div class="lead-form__content">
-          <h2 class="lead-form__title title-md">Готов к карьере в разработке игр?</h2>
+          <h2 class="lead-form__title title-md">{{ props.title }}</h2>
 
           <p class="lead-form__description">
             Узнать больше об обучении в ITHub СПб, подать заявку и задать вопросы можно как онлайн,
@@ -382,7 +389,7 @@ onBeforeUnmount(() => {
           </label>
 
           <div class="lead-form__submit">
-            <ButtonCta type="submit" :disabled="submitting">
+            <ButtonCta type="submit" :disabled="submitting" :variant="props.btnVariant">
               {{ submitting ? 'Отправка...' : 'Поступить в ITHUB СПБ' }}
             </ButtonCta>
           </div>
