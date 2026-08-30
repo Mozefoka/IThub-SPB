@@ -111,7 +111,7 @@ const currentBlock = computed(() =>
           </button>
         </div>
 
-        <div class="teaching-approach__panel" v-if="currentBlock">
+        <div v-if="currentBlock" class="teaching-approach__panel">
           <h2 class="teaching-approach__panel-title title-md">{{ currentBlock.title }}</h2>
 
           <div class="teaching-approach__panel-body">

@@ -3,7 +3,7 @@ import BaseHero from '@/components/hero/BaseHero.vue'
 import StudentCases from '@/components/StudentCases.vue'
 import CyberHub from '@/components/CyberHub.vue'
 import StudyProgram from '@/components/StudyProgram.vue'
-import { gamedevCards, gamedevSuccessStories } from '@/data/gamedev.ts'
+import { gamedevCases, gamedevSuccessStories } from '@/data/gamedev.ts'
 import GameProjects from '@/components/GameProjects.vue'
 import LeadForm from '@/components/LeadForm.vue'
 import SuccessStories from '@/components/SuccessStories.vue'
@@ -26,7 +26,7 @@ import BaseFaq from '@/components/BaseFaq.vue'
       video="https://kinescope.io/tzPFG64ZZrK1wUQWgg4L4m"
     />
     <GameProjects title="Вы только посмотрите на проекты наших ребят" />
-    <StudyProgram :cards="gamedevCards" image="src/assets/images/disc.png" />
+    <StudyProgram :cases="gamedevCases" image="src/assets/images/disc.png" />
     <LeadForm title="Готов к карьере в разработке игр?" btn-variant="secondary" />
     <BaseFaq />
   </main>

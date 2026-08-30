@@ -54,7 +54,7 @@ export const itSliderStages = [
   },
 ]
 
-export const itCards = [
+export const itCases = [
   {
     id: 1,
     title: 'Интернет-маркетолог',

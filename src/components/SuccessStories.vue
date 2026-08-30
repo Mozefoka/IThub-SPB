@@ -4,20 +4,25 @@ import BaseBadge from '@/components/ui/BaseBadge.vue'
 
 interface SuccessStory {
   id: number
-  title: string
+  cardTitle: string
   photo: string
   studentName: string
   studentCourse: string
   badgeIcon?: string
-  badgeText: string
+  badgeText?: string
   description: string[]
 }
 
 interface Props {
+  title?: string
   cards: SuccessStory[]
+  active?: 'active'
+  star?: string
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  title: 'Истории успеха',
+})
 
 const STEP_DEG = 55
 const TRAVEL = 575
@@ -93,19 +98,14 @@ const headlineStyle = (index: number) => {
 
   if (progress < at - TITLE_IN) {
     opacity = 0
-
   } else if (progress < at) {
-
     const t = (progress - (at - TITLE_IN)) / TITLE_IN
     opacity = t
     shift = TITLE_SHIFT * (1 - t)
-
   } else if (progress < at + TITLE_HOLD || index === lastIndex) {
-
     opacity = 1
     shift = 0
   } else {
-
     const t = Math.min((progress - at - TITLE_HOLD) / TITLE_OUT, 1)
     opacity = 1 - t
     shift = -TITLE_DRIFT * t
@@ -121,21 +121,28 @@ const headlineStyle = (index: number) => {
     class="success-stories"
     :style="{ '--pin-length': `${pinLength}px`, '--wheel-radius': `${WHEEL_RADIUS}px` }"
   >
-    <div class="success-stories__stage">
-      <h2 class="success-stories__title title-s">Истории успеха</h2>
-
+    <div class="success-stories__stage" :class="`success-stories__stage--${props.active}`">
       <div class="success-stories__headlines" aria-hidden="true">
-        <p
+        <div
           v-for="(story, index) in props.cards"
           :key="story.id"
-          class="success-stories__headline title-md"
+          class="success-stories__headline"
           :style="headlineStyle(index)"
         >
-          {{ story.title }}
-        </p>
+          <h2
+            v-if="index === 0"
+            class="success-stories__title"
+            :class="`success-stories__title--${props.active}`"
+          >
+            {{ props.title }}
+          </h2>
+          <h3 class="success-stories__stage-title title-md">
+            {{ story.cardTitle }}
+          </h3>
+        </div>
       </div>
 
-      <img class="success-stories__star" src="@/assets/icons/long-star.svg" alt="" />
+      <img v-if="props.star" class="success-stories__star" :src="props.star" alt="Звезда" />
 
       <div class="success-stories__wheel" :style="wheelStyle">
         <div
@@ -145,13 +152,11 @@ const headlineStyle = (index: number) => {
           :style="spokeStyle(index)"
         >
           <article class="success-stories__card">
-            <h3 class="success-stories__card-title title-md">{{ story.title }}</h3>
-
             <div class="success-stories__card-photo">
               <img :src="story.photo" alt="Студент" />
             </div>
 
-            <div class="success-stories__card-panel">
+            <div class="success-stories__card-panel" :class="`success-stories__card-panel--${active}`">
               <p class="success-stories__card-panel-name">
                 {{ story.studentName }}
               </p>
@@ -161,7 +166,7 @@ const headlineStyle = (index: number) => {
               </p>
 
               <div class="success-stories__card-panel-badge">
-                <BaseBadge :img="story.badgeIcon" :border="'secondary'">
+                <BaseBadge v-if="story.badgeText" :img="story.badgeIcon" :border="'secondary'">
                   {{ story.badgeText }}
                 </BaseBadge>
               </div>
@@ -243,18 +248,42 @@ const headlineStyle = (index: number) => {
     height: calc(100vh / var(--zoom));
     overflow: hidden;
     background: radial-gradient(
-      circle at 50% 35%,
-      rgba($color-purple, 0.6) 0%,
-      rgba($color-purple, 0.25) 40%,
-      transparent 55%
+      ellipse 100% 50% at 50% 50%,
+      rgba(142, 66, 235, 0.6) 0%,
+      rgba(142, 66, 235, 0.25) 40%,
+      transparent 70%
     );
+
+    &--active {
+      background: radial-gradient(
+        ellipse 40% 30% at 50% 30%,
+        rgb(155 37 237 / 0.6) 30%,
+        rgba(142, 66, 235, 0.25) 90%,
+        transparent 100%
+      );
+    }
   }
 
   &__title {
     position: relative;
     z-index: 3;
+    font-weight: 700;
+    font-size: clamp(14px, 1.5vw, 18px);
+    line-height: clamp(16px, 2vw, 20px);
+    opacity: 0.3;
     padding-top: 20px;
-    text-align: center;
+    margin-bottom: 20px;
+
+    &--active {
+      max-width: 330px;
+      font-weight: 400;
+      opacity: 1;
+    }
+  }
+
+  &__stage-title {
+    max-width: 555px;
+    margin: 0 auto;
   }
 
   &__headlines {
@@ -388,6 +417,20 @@ const headlineStyle = (index: number) => {
 
     @media (max-width: 500px) {
       max-width: 290px;
+    }
+
+    &--active {
+      max-width: 600px;
+      align-items: flex-start;
+      border-top: 1px solid;
+      background-color: $color-black;
+      border-radius: 0;
+      text-align: left;
+      padding: 20px 0 0 0;
+
+        @media (max-width: 729px) {
+          max-width: 300px;
+        }
     }
   }
 

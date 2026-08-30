@@ -1,4 +1,4 @@
-export const marketingCards = [
+export const marketingCases = [
   {
     id: 1,
     title: 'Интернет-маркетолог',
@@ -55,7 +55,7 @@ export const marketingCards = [
 export const marketingSuccessStories = [
   {
     id: 1,
-    title: 'Трудоустроился на 2 курсе',
+    cardTitle: 'Трудоустроился на 2 курсе',
     photo: '/src/assets/images/roman.webp',
     studentName: 'Никита Барановский',
     studentCourse: 'Студент ITHub СПБ, 2 курс',
@@ -69,7 +69,7 @@ export const marketingSuccessStories = [
 
   {
     id: 2,
-    title: 'Стала призёром международного конкурса',
+    cardTitle: 'Стала призёром международного конкурса',
     photo: '/src/assets/images/roman.webp',
     studentName: 'Анастасия Акчурина',
     studentCourse: 'Студентка ITHub СПБ, 2 курс',
@@ -82,7 +82,7 @@ export const marketingSuccessStories = [
 
   {
     id: 3,
-    title: 'Трудоустроился на 2 курсе',
+    cardTitle: 'Трудоустроился на 2 курсе',
     photo: '/src/assets/images/roman.webp',
     studentName: 'Никита Барановский',
     studentCourse: 'Студент ITHub СПБ, 2 курс',

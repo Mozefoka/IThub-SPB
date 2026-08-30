@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import ButtonCta from '@/components/ui/ButtonCta.vue'
 
-interface Card {
+interface Case {
   id: number
   title: string
   description: string
@@ -12,7 +12,7 @@ interface Card {
 }
 
 interface Props {
-  cards: Card[]
+  cases: Case[]
   zoom?: 'zoom'
   container?: 'wide'
   image?: string
@@ -35,17 +35,17 @@ const props = defineProps<Props>()
         </p>
       </div>
 
-      <article v-for="card in props.cards" class="profession-card" :key="card.id">
+      <article v-for="studyCase in props.cases" class="profession-card" :key="studyCase.id">
         <div class="profession-card__header">
-          <h3 class="profession-card__title">{{ card.title }}</h3>
+          <h3 class="profession-card__title">{{ studyCase.title }}</h3>
           <p class="profession-card__description">
-            {{ card.description }}
+            {{ studyCase.description }}
           </p>
         </div>
 
         <ul class="profession-card__features">
           <li
-            v-for="(feature, index) in card.features"
+            v-for="(feature, index) in studyCase.features"
             class="profession-card__feature"
             :key="index"
           >
@@ -54,7 +54,7 @@ const props = defineProps<Props>()
         </ul>
 
         <div class="profession-card__tags">
-          <span v-for="(tag, index) in card.tags" class="profession-card__tag" :key="index">
+          <span v-for="(tag, index) in studyCase.tags" class="profession-card__tag" :key="index">
             {{ tag }}
           </span>
         </div>
@@ -65,11 +65,11 @@ const props = defineProps<Props>()
 
         <div class="profession-card__program">
           <h4 class="profession-card__program-title">Программа обучения</h4>
-          <span class="profession-card__program-code">{{ card.code }}</span>
+          <span class="profession-card__program-code">{{ studyCase.code }}</span>
 
           <ul class="profession-card__program-links">
             <li
-              v-for="(link, index) in card.links"
+              v-for="(link, index) in studyCase.links"
               class="profession-card__program-link"
               :key="index"
             >
