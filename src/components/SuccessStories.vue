@@ -16,7 +16,7 @@ interface SuccessStory {
 interface Props {
   title?: string
   cards: SuccessStory[]
-  active?: 'active'
+  active?: boolean
   star?: string
 }
 
@@ -195,7 +195,7 @@ const headlineStyle = (index: number) => {
   --zoom-height: 1.6;
   --zoom: min(var(--zoom-width), var(--zoom-height));
 
-  --card-top: 142px;
+  --card-top: 150px;
   --fade-window: 360px;
 
   position: relative;

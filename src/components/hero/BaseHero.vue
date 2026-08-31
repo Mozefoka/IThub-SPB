@@ -7,7 +7,7 @@ interface Props {
   mainImage: string
   leftImage?: string
   rightImage?: string
-  keyboard?: 'keyboard'
+  keyboard?: boolean
   zoom?: 'zoom'
   star: 'primary' | 'secondary'
 }
@@ -16,13 +16,16 @@ const props = defineProps<Props>()
 </script>
 
 <template>
-  <section class="hero" :class="`hero--${props.zoom}`">
+  <section class="hero" :class="{ [`hero--${props.zoom}`]: props.zoom }">
     <div class="hero__star" :class="`hero__star--${props.star}`">
       <img src="@/assets/icons/purple-star.svg" alt="Звезда" />
     </div>
 
     <div class="hero__inner">
-      <div class="hero__main-image" :class="`hero__main-image--${props.keyboard}`">
+      <div
+        class="hero__main-image"
+        :class="{ [`hero__main-image--keyboard`]: props.keyboard }"
+      >
         <img :src="props.mainImage" alt="Главная картинка" />
       </div>
 
