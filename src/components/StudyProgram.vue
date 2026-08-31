@@ -16,13 +16,19 @@ interface Props {
   zoom?: 'zoom'
   container?: 'wide'
   image?: string
+  black?: boolean
 }
 
 const props = defineProps<Props>()
 </script>
 
 <template>
-  <section class="study-program" :class="[`study-program--${props.zoom}`]">
+  <section
+    class="study-program"
+    :class="{
+      [`study-program--${props.zoom}`]: props.zoom,
+    }"
+  >
     <div v-if="props.image" class="study-program__top-image">
       <img :src="props.image" alt="Диск" />
     </div>
@@ -35,7 +41,12 @@ const props = defineProps<Props>()
         </p>
       </div>
 
-      <article v-for="studyCase in props.cases" class="profession-card" :key="studyCase.id">
+      <article
+        v-for="studyCase in props.cases"
+        class="profession-card"
+        :class="[{ 'profession-card--black': props.black }]"
+        :key="studyCase.id"
+      >
         <div class="profession-card__header">
           <h3 class="profession-card__title">{{ studyCase.title }}</h3>
           <p class="profession-card__description">
@@ -146,6 +157,26 @@ const props = defineProps<Props>()
       'tags'
       'program '
       'button';
+  }
+
+  &--black {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px 0 30px;
+    border-top: 1px solid;
+    border-radius: 0;
+    background-color: $color-black;
+
+      @media (max-width: 1199px) {
+        grid-template-columns: auto;
+      }
+
+    .profession-card__program {
+      justify-self: flex-start;
+    }
+
+    .profession-card__button {
+      max-width: 170px;
+    }
   }
 
   &__header {

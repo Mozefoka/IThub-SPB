@@ -5,11 +5,19 @@ const props = withDefaults(
   defineProps<{
     size?: 'small' | 'medium' | 'large'
     variant?: 'primary' | 'secondary'
+    form?: boolean
   }>(),
   {
     variant: 'primary',
   },
 )
+
+const scrollToLeadForm = () => {
+  document.getElementById('lead-form')?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  })
+}
 
 const buttonClasses = computed(() => [
   'button-cta',
@@ -19,7 +27,11 @@ const buttonClasses = computed(() => [
 </script>
 
 <template>
-  <button :class="buttonClasses">
+  <button v-if="form" type="submit" :class="buttonClasses">
+    <slot />
+  </button>
+
+  <button v-else :class="buttonClasses" @click="scrollToLeadForm">
     <slot />
   </button>
 </template>

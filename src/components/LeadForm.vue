@@ -254,7 +254,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <section class="lead-form">
+  <section class="lead-form" id="lead-form">
     <div class="container">
       <div class="lead-form__grid">
         <div class="lead-form__content">

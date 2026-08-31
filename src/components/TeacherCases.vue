@@ -275,6 +275,7 @@ const selectTab = (id: string): void => {
 .teacher-cases {
   @include zoom;
 
+  margin-bottom: $margin-bottom;
   padding: 0 20px;
 
   &__title {
@@ -317,7 +318,10 @@ const selectTab = (id: string): void => {
 
     &--active {
       color: $color-white;
-      font-weight: 700;
+
+      &:hover {
+        color: rgba($color-white, 1);
+      }
     }
   }
 
