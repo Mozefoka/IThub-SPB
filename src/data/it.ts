@@ -1,7 +1,9 @@
+import { images } from '@/data/images.ts'
+
 export const itSliderStages = [
   {
     id: 1,
-    image: 'src/assets/images/maxim.png',
+    image: images.maxim,
     title: 'Модуль серверной части за 2 недели',
     name: 'Максим Левин',
     text: [
@@ -14,7 +16,7 @@ export const itSliderStages = [
 
   {
     id: 2,
-    image: 'src/assets/images/kirill.png',
+    image: images.kirill,
     title: 'Стажировка и трудоустройство после 1 курса',
     name: 'Кирилл Паршин',
     text: [
@@ -28,7 +30,7 @@ export const itSliderStages = [
 
   {
     id: 3,
-    image: 'src/assets/images/maxim.png',
+    image: images.maxim,
     title: 'Модуль серверной части за 2 недели',
     name: 'Максим Левин',
     text: [
@@ -41,7 +43,7 @@ export const itSliderStages = [
 
   {
     id: 4,
-    image: 'src/assets/images/kirill.png',
+    image: images.kirill,
     title: 'Стажировка и трудоустройство после 1 курса',
     name: 'Кирилл Паршин',
     text: [

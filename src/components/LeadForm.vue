@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import ButtonCta from '@/components/ui/ButtonCta.vue'
+import { images, icons } from '@/data/images.ts'
 
 interface Manager {
   name: string
@@ -53,7 +54,7 @@ const emit = defineEmits<{
 const manager: Manager = {
   name: 'Анастасия Кучерова',
   role: 'Руководитель приёмной комиссии ITHub СПБ',
-  avatar: '/src/assets/images/alexandra.webp',
+  avatar: images.alexandra,
 }
 
 const grades = [8, 9, 10, 11]
@@ -82,14 +83,14 @@ const countries: Country[] = [
     code: 'PS',
     name: 'Палестина',
     dialCode: '+970',
-    flag: '/src/assets/icons/ps-flag.svg',
+    flag: icons.psFlag,
     mask: '(###) ###-##-##',
   },
   {
     code: 'RU',
     name: 'Россия',
     dialCode: '+7',
-    flag: '/src/assets/icons/ru-flag.svg',
+    flag: icons.ruFlag,
     mask: '(###) ###-##-##',
   },
   {

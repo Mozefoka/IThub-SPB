@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonCta from '@/components/ui/ButtonCta.vue'
+import { icons } from '@/data/images.ts'
 
 interface Props {
   title: string
@@ -18,7 +19,7 @@ const props = defineProps<Props>()
 <template>
   <section class="hero" :class="{ [`hero--${props.zoom}`]: props.zoom }">
     <div class="hero__star" :class="`hero__star--${props.star}`">
-      <img src="@/assets/icons/purple-star.svg" alt="Звезда" />
+      <img :src="icons.purpleStar" alt="Звезда" />
     </div>
 
     <div class="hero__inner">
@@ -49,7 +50,7 @@ const props = defineProps<Props>()
     </div>
 
     <div class="hero__star hero__star--right">
-      <img src="@/assets/icons/purple-star.svg" alt="Звезда" />
+      <img :src="icons.purpleStar" alt="Звезда" />
     </div>
   </section>
 </template>

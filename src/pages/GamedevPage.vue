@@ -8,14 +8,15 @@ import GameProjects from '@/components/GameProjects.vue'
 import LeadForm from '@/components/LeadForm.vue'
 import SuccessStories from '@/components/SuccessStories.vue'
 import BaseFaq from '@/components/BaseFaq.vue'
+import { icons, images } from '@/data/images.ts'
 </script>
 
 <template>
   <main class="gamedev">
     <BaseHero
-      title="src/assets/icons/gamedev-title.svg"
+      :title="icons.gamedevTitle"
       subtitle="Набор 2026: 80% мест уже занято"
-      main-image="src/assets/images/gamepad.webp"
+      :main-image="images.gamepad"
       star="primary"
     />
     <SuccessStories :cards="gamedevSuccessStories" />

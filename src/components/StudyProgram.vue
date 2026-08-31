@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ButtonCta from '@/components/ui/ButtonCta.vue'
+import { icons } from '@/data/images.ts'
 
 interface Case {
   id: number
@@ -85,7 +86,7 @@ const props = defineProps<Props>()
               :key="index"
             >
               <a href="#">{{ link }}</a>
-              <img src="/src/assets/icons/link-arrow.svg" alt="Стрелка" />
+              <img :src="icons.linkArrow" alt="Стрелка" />
             </li>
           </ul>
         </div>
@@ -166,9 +167,9 @@ const props = defineProps<Props>()
     border-radius: 0;
     background-color: $color-black;
 
-      @media (max-width: 1199px) {
-        grid-template-columns: auto;
-      }
+    @media (max-width: 1199px) {
+      grid-template-columns: auto;
+    }
 
     .profession-card__program {
       justify-self: flex-start;

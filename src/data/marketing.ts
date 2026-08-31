@@ -1,3 +1,5 @@
+import { icons, images } from '@/data/images.ts'
+
 export const marketingCases = [
   {
     id: 1,
@@ -56,10 +58,10 @@ export const marketingSuccessStories = [
   {
     id: 1,
     cardTitle: 'Трудоустроился на 2 курсе',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Никита Барановский',
     studentCourse: 'Студент ITHub СПБ, 2 курс',
-    badgeIcon: '/src/assets/icons/success-stories-icon.svg',
+    badgeIcon: icons.successStoriesIcon,
     badgeText: 'Траектория быстрого роста в ITHub',
     description: [
       'Уже на втором курсе Никита стал ведущим маркетологом в Union. Возглавил команду из четырех специалистов!',
@@ -70,10 +72,10 @@ export const marketingSuccessStories = [
   {
     id: 2,
     cardTitle: 'Стала призёром международного конкурса',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Анастасия Акчурина',
     studentCourse: 'Студентка ITHub СПБ, 2 курс',
-    badgeIcon: '/src/assets/icons/success-stories-icon.svg',
+    badgeIcon: icons.successStoriesIcon,
     badgeText: 'В ITHub теория мгновенно переходит в практику',
     description: [
       'Настя заняла 3-е место на международном конкурсе рекламы «Золотой колос». С проектом, который родился на бизнес-игре в IThub — там она вместе с командой прошла путь от идеи продукта до готовой стратегии продвижения',
@@ -83,7 +85,7 @@ export const marketingSuccessStories = [
   {
     id: 3,
     cardTitle: 'Трудоустроился на 2 курсе',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Никита Барановский',
     studentCourse: 'Студент ITHub СПБ, 2 курс',
     badgeText: 'Преподаватели ITHub дают студентам возможность работать с реальными бюджетами',

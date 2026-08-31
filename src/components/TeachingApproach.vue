@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue'
 import BenefitsBlock from '@/components/ui/BenefitsBlock.vue'
 import BaseBadge from '@/components/ui/BaseBadge.vue'
+import { images } from '@/data/images.ts'
+import video from '@/assets/video/oiia.mp4'
 
 interface Guest {
   name: string
@@ -24,7 +26,7 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
   {
     id: 1,
     title: 'Бизнес игра ITHUB x ENDY x ROCK&ROMI',
-    teacher: { name: 'Александра Воронина', photo: '/src/assets/images/alexandra.webp' },
+    teacher: { name: 'Александра Воронина', photo: images.alexandra },
     description: [
       'За 6 часов студенты ITHub объединились в команды маркетологов и дизайнеров, чтобы разработать проекты, продумать их позиционирование и представить свои решения экспертам индустрии',
     ],
@@ -33,23 +35,23 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
       'Реальный кейс для портфолио и обратную связь от практикующих специалистов',
     ],
     type: 'video',
-    media: 'src/assets/video/oiia.mp4',
+    media: video,
   },
 
   {
     id: 2,
     title: 'Пара с действующими блогерами',
-    teacher: { name: 'Александра Воронина', photo: '/src/assets/images/alexandra.webp' },
+    teacher: { name: 'Александра Воронина', photo: images.alexandra },
     guests: [
       {
         name: 'Александра Воронина',
-        photo: 'src/assets/images/alexandra.webp',
+        photo: images.alexandra,
         subscribers: '42.9 тыс. подписчиков',
       },
 
       {
         name: 'Александра Воронина',
-        photo: '/src/assets/images/alexandra.webp',
+        photo: images.alexandra,
         subscribers: '128 тыс. подписчиков',
       },
     ],
@@ -63,25 +65,25 @@ const teachingBlocks = ref<TeachingApproachRules[]>([
   {
     id: 3,
     title: 'Открытая пара с Охта Парком',
-    teacher: { name: 'Александра Воронина', photo: '/src/assets/images/alexandra.webp' },
+    teacher: { name: 'Александра Воронина', photo: images.alexandra },
     description: [
       'На занятии студенты работали с реальными кейсами от рестораторов и отельеров: разбирали задачи бизнеса, предлагали решения и погружались в настоящие бизнес-процессы',
     ],
     type: 'image',
-    media: 'src/assets/images/team.jpg',
+    media: images.team,
   },
 
   {
     id: 4,
     title: 'Открытая пара с «Петербургский кондитер»',
-    teacher: { name: 'Александра Воронина', photo: '/src/assets/images/alexandra.webp' },
+    teacher: { name: 'Александра Воронина', photo: images.alexandra },
     description: [
       'Студенты-маркетологи работали над реальной задачей фабрики «Петербургский кондитер»: разработали предложения по обновлению фирменного стиля и позиционирования бренда',
 
       'Свои решения они защитили перед экспертным жюри — генеральным директором предприятия, преподавателями и представителями digital-индустрии. После защиты студентов пригласили на экскурсию по производству, где 8 участников проекта получили предложения о стажировке',
     ],
     type: 'image',
-    media: 'src/assets/images/team.jpg',
+    media: images.team,
   },
 ])
 

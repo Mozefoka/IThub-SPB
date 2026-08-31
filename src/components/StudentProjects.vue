@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import BaseSlider from '@/components/ui/BaseSlider.vue'
+import { images } from '@/data/images.ts'
 
 interface Project {
   id: number
@@ -16,7 +17,7 @@ const projects: Project[] = [
     title: 'Первую работу искать сложно. Особенно когда у тебя еще нет опыта',
     description:
       'Именно эту проблему решили студенты, создав IJHunt — цифрового наставника, который помогает пройти путь от первого портфолио до поиска работы',
-    images: ['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp'],
+    images: [images.ijhunt, images.pawadog],
   },
 
   {
@@ -25,7 +26,7 @@ const projects: Project[] = [
     title: 'Забота о питомце не должна превращаться в рутину',
     description:
       'Так родилась идея Pawadog — цифровой экосистемы, которая объединяет карту дог-френдли мест, сообщество владельцев собак и игровые механики',
-    images: ['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp'],
+    images: [images.ijhunt, images.pawadog],
   },
 
   {
@@ -34,7 +35,7 @@ const projects: Project[] = [
     title: 'Первую работу искать сложно. Особенно когда у тебя еще нет опыта',
     description:
       'Именно эту проблему решили студенты, создав IJHunt — цифрового наставника, который помогает пройти путь от первого портфолио до поиска работы',
-    images: ['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp'],
+    images: [images.ijhunt, images.pawadog],
   },
 
   {
@@ -43,7 +44,7 @@ const projects: Project[] = [
     title: 'Забота о питомце не должна превращаться в рутину',
     description:
       'Так родилась идея Pawadog — цифровой экосистемы, которая объединяет карту дог-френдли мест, сообщество владельцев собак и игровые механики',
-    images: ['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp'],
+    images: [images.ijhunt, images.pawadog],
   },
 ]
 </script>
@@ -67,9 +68,7 @@ const projects: Project[] = [
       </div>
 
       <div class="student-projects__slider">
-        <BaseSlider
-          :images="['/src/assets/images/ijhunt.webp', '/src/assets/images/pawadog.webp']"
-        />
+        <BaseSlider :images="[images.ijhunt, images.pawadog]" />
       </div>
     </div>
   </section>

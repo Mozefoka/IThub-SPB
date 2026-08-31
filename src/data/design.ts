@@ -1,31 +1,33 @@
+import { images } from '@/data/images.ts'
+
 export const workItems = [
   {
     id: 1,
-    image: 'src/assets/images/work.jpg',
+    image: images.work,
     alt: 'Проект',
   },
 
   {
     id: 2,
-    image: 'src/assets/images/work2.jpg',
+    image: images.work2,
     alt: 'Проект',
   },
 
   {
     id: 3,
-    image: 'src/assets/images/work3.jpg',
+    image: images.work3,
     alt: 'Проект',
   },
 
   {
     id: 4,
-    image: 'src/assets/images/work4.jpg',
+    image: images.work4,
     alt: 'Проект',
   },
 
   {
     id: 5,
-    image: 'src/assets/images/work5.jpg',
+    image: images.work5,
     alt: 'Проект',
   },
 ]
@@ -34,7 +36,7 @@ export const designSuccessStories = [
   {
     id: 1,
     cardTitle: 'Трудоустроился на 2 курсе',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Доминика Шабардыгина',
     studentCourse: 'Студент ITHub СПБ, 2 курс',
     description: [
@@ -46,7 +48,7 @@ export const designSuccessStories = [
   {
     id: 2,
     cardTitle: 'Стала призёром международного конкурса',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Ксения Телийчук и Андрей Труфанов',
     studentCourse: 'Студентка ITHub СПБ, 2 курс',
     description: [
@@ -57,7 +59,7 @@ export const designSuccessStories = [
   {
     id: 3,
     cardTitle: 'Трудоустроился на 2 курсе',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Богдан Цверкунов',
     studentCourse: 'Студент ITHub СПБ, 2 курс',
     description: [

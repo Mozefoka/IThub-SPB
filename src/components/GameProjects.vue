@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import BaseSlider from '@/components/ui/BaseSlider.vue'
+import { images, icons } from '@/data/images.ts'
 
 interface GameProject {
   id: number
@@ -18,7 +19,7 @@ const games: GameProject[] = [
   {
     id: 1,
     name: 'Story of Henry',
-    poster: 'src/assets/images/fly-agaric.png',
+    poster: images.flyAgaric,
     video:
       'https://kinescope.io/embed/j72xySrZ2pNFrAUon8MSSD?&muted=true&autoplay=true&autopause=false',
     description:
@@ -28,7 +29,7 @@ const games: GameProject[] = [
   {
     id: 2,
     name: "Michael's Camp",
-    poster: 'src/assets/images/fly-agaric.png',
+    poster: images.flyAgaric,
     video:
       'https://kinescope.io/embed/j72xySrZ2pNFrAUon8MSSD?&muted=true&autoplay=true&autopause=false',
     description:
@@ -73,7 +74,7 @@ const games: GameProject[] = [
                 class="games__card-video-preview-btn"
                 @click="playingId = game.id"
               >
-                <img src="@/assets/icons/play-btn.svg" alt="Воспроизвести" />
+                <img :src="icons.playBtn" alt="Воспроизвести" />
               </button>
 
               <iframe
@@ -103,10 +104,7 @@ const games: GameProject[] = [
         </div>
 
         <div class="games__swiper-slider">
-          <BaseSlider
-            slim="slim"
-            :images="['src/assets/images/pureray.webp', 'src/assets/images/pureray2.webp']"
-          />
+          <BaseSlider slim="slim" :images="[images.pureray, images.pureray2]" />
         </div>
       </div>
     </div>

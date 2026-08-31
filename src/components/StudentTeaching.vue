@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { icons } from '@/data/images.ts'
+
 interface Teaching {
   id: number
   text: string
@@ -77,7 +79,7 @@ const teachingBlocks: Teaching[] = [
             <h3 class="student-teaching__header-title">{{ props.leftTitle }}</h3>
 
             <div class="student-teaching__header-img">
-              <img src="@/assets/icons/vs.webp" alt="VS" />
+              <img :src="icons.vs" alt="VS" />
             </div>
 
             <h3 class="student-teaching__header-title">{{ props.rightTitle }}</h3>
@@ -172,9 +174,9 @@ const teachingBlocks: Teaching[] = [
     gap: 20px;
     margin-bottom: 100px;
 
-      @media (max-width: 959px) {
-        margin-bottom: 30px;
-      }
+    @media (max-width: 959px) {
+      margin-bottom: 30px;
+    }
 
     @media (max-width: 479px) {
       grid-template-columns: 1fr;
@@ -243,11 +245,11 @@ const teachingBlocks: Teaching[] = [
       top: -120%;
     }
 
-      @media (max-width: 959px) {
-        max-width: 300px;
-        margin: 0 auto;
-        position: static;
-      }
+    @media (max-width: 959px) {
+      max-width: 300px;
+      margin: 0 auto;
+      position: static;
+    }
   }
 }
 </style>

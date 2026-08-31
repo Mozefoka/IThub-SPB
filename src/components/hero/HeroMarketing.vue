@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import ButtonCta from '@/components/ui/ButtonCta.vue'
 import BaseBadge from '@/components/ui/BaseBadge.vue'
+import { images, icons } from '@/data/images.ts'
 </script>
 
 <template>
   <section class="marketing-hero">
     <div class="marketing-hero__star">
-      <img src="@/assets/icons/purple-star.svg" alt="Звезда" />
+      <img :src="icons.purpleStar" alt="Звезда" />
     </div>
 
     <div class="container">
@@ -19,15 +20,15 @@ import BaseBadge from '@/components/ui/BaseBadge.vue'
 
         <div class="marketing-hero__photos">
           <div class="marketing-hero__photos-item marketing-hero__photos-item--left">
-            <img src="@/assets/images/face.webp" alt="Выпускник" />
+            <img :src="images.face" alt="Выпускник" />
           </div>
 
           <div class="marketing-hero__photos-item marketing-hero__photos-item--middle">
-            <img src="@/assets/images/face.webp" alt="Выпускник" />
+            <img :src="images.face" alt="Выпускник" />
           </div>
 
           <div class="marketing-hero__photos-item marketing-hero__photos-item--right">
-            <img src="@/assets/images/face.webp" alt="Выпускник" />
+            <img :src="images.face" alt="Выпускник" />
           </div>
         </div>
 

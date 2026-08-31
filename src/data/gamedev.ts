@@ -1,3 +1,5 @@
+import { icons, images } from '@/data/images.ts'
+
 export const gamedevCases = [
   {
     id: 1,
@@ -43,7 +45,7 @@ export const gamedevSuccessStories = [
   {
     id: 1,
     cardTitle: 'Прошёл 6 хакатонов и разработал игру на первом курсе',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Тимофей Фирсов',
     studentCourse: 'Студент ITHub СПБ, 2 курс',
     badgeIcon: '/src/assets/icons/success-stories-icon.svg',
@@ -57,10 +59,10 @@ export const gamedevSuccessStories = [
   {
     id: 2,
     cardTitle: 'Стала призёром международного конкурса',
-    photo: '/src/assets/images/roman.webp',
+    photo: images.roman,
     studentName: 'Камилла Железнякова',
     studentCourse: 'Студентка ITHub СПБ, 2 курс',
-    badgeIcon: '/src/assets/icons/success-stories-icon.svg',
+    badgeIcon: icons.successStoriesIcon,
     badgeText: 'В ITHub теория мгновенно переходит в практику',
     description: [
       'Настя заняла 3-е место на международном конкурсе рекламы «Золотой колос». С проектом, который родился на бизнес-игре в IThub — там она вместе с командой прошла путь от идеи продукта до готовой стратегии продвижения',

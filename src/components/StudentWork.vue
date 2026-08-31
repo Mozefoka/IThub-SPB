@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { images } from '@/data/images.ts'
 
-interface StudenWorkItem {
+interface StudentWorkItem {
   id: number
   workTitle: string
   button?: boolean
@@ -15,13 +16,13 @@ interface Props {
 
 const props = defineProps<Props>()
 
-const works: StudenWorkItem[] = [
+const works: StudentWorkItem[] = [
   {
     id: 1,
     workTitle: 'Incastro',
     description:
       'Наши студенты разработали дизайн сайта, сгенерировали стильные интерьеры и создали динамичную анимацию для Dprofile',
-    images: ['src/assets/images/work.jpg', 'src/assets/images/work2.jpg'],
+    images: [images.work, images.work2],
     ps: 'P. S. Работа получилась настолько крутой, что ребятам сразу предложили постоянное сотрудничество в дизайн-студии sueta. team',
   },
 
@@ -31,7 +32,7 @@ const works: StudenWorkItem[] = [
     button: true,
     description:
       'Брендинг для арт-галереи от нашей студентки. Она создала визуальную концепцию, логотип и анимации, а также продумала мерч',
-    images: ['src/assets/images/work3.jpg', 'src/assets/images/work4.jpg'],
+    images: [images.work3, images.work4],
   },
 
   {
@@ -39,7 +40,7 @@ const works: StudenWorkItem[] = [
     workTitle: 'Авторская модель куклы',
     description:
       'Авторская шарнирная кукла от нашей студентки. Лина Мудрова смоделировала сложный персонаж в Blender, подготовила его к 3D-печати, а затем вручную собрала, раскрасила и откастомизировала готовый физический арт-объект',
-    images: ['src/assets/images/work5.jpg', 'src/assets/images/work.jpg'],
+    images: [images.work5, images.work],
   },
 ]
 </script>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { images } from '@/data/images.ts'
+
 interface Cyberhub {
   title: string
   description: string
@@ -15,7 +17,7 @@ const props = defineProps<Cyberhub>()
         <h2 class="cyberhub__title">{{ props.title }}</h2>
         <p class="cyberhub__description">{{ props.description }}</p>
         <div class="cyberhub__preview">
-          <img src="@/assets/images/psp.webp" alt="PSP" class="cyberhub__preview-image" />
+          <img :src="images.psp" alt="PSP" class="cyberhub__preview-image" />
 
           <video
             v-if="props.video.endsWith('.mp4')"

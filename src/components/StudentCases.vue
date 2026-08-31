@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import BenefitsBlock from '@/components/ui/BenefitsBlock.vue'
 import BaseSlider from '@/components/ui/BaseSlider.vue'
+import { images } from '@/data/images.ts'
 
 interface StudentCase {
   id: number
@@ -18,7 +19,7 @@ const studentCases: StudentCase[] = [
     caseTitle: 'Международный Game Jam от Pirate Software',
     description:
       'На две недели стены хаба превратились в настоящую геймдев-лабораторию, где команды с нуля создавали рабочие игровые прототипы для отправки на суд мирового жюри. А финалом марафона стал стрим, где преподаватели IThub лично сели тестировать студенческие игры, устроив честный разбор в прямом эфире',
-    images: ['src/assets/images/rules.png', 'src/assets/images/team.png'],
+    images: [images.rules, images.team2],
   },
 
   {
@@ -28,11 +29,7 @@ const studentCases: StudentCase[] = [
       'Ассистенты кафедры вместе со студентами пришли на Всероссийскую конференцию гейм-разработчиков',
     description:
       'Ребята работали волонтерами: управляли процессами на площадке, встречали косплееров и собственными глазами увидели, как устроена изнанка топ-мероприятий индустрии',
-    images: [
-      'src/assets/images/konfa.jpg',
-      'src/assets/images/rules.png',
-      'src/assets/images/team.png',
-    ],
+    images: [images.konfa, images.rules, images.team2],
   },
 ]
 </script>
@@ -161,9 +158,9 @@ const studentCases: StudentCase[] = [
   &__card-slider {
     grid-area: slider;
 
-      @media (max-width: 479px) {
-        margin-bottom: 20px;
-      }
+    @media (max-width: 479px) {
+      margin-bottom: 20px;
+    }
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
+import { images } from '@/data/images.ts'
 
 defineOptions({
   name: 'TeacherCases',
@@ -44,15 +45,15 @@ const tabs: TeacherCaseTab[] = [
       'Преподаватель подключила студентов прямо к рабочим процессам дизайн-студии sueta.team. Ребята сделали реальный коммерческий проект для мебельной студии incastro. Ксения Телейчук собрала веб-дизайн и сгенерировала интерьеры, а Андрей Труфанов заанимировал готовый кейс для публикации на Dprofile',
     images: [
       {
-        src: 'src/assets/images/work.jpg',
+        src: images.work,
         alt: 'Вывеска мебельной студии incastro',
       },
       {
-        src: 'src/assets/images/work2.jpg',
+        src: images.work2,
         alt: 'Материалы и логотип incastro',
       },
       {
-        src: 'src/assets/images/work3.jpg',
+        src: images.work3,
         alt: 'Фирменный стиль incastro на упаковке',
       },
     ],
@@ -68,15 +69,15 @@ const tabs: TeacherCaseTab[] = [
       'Три дня дедлайнов и полного погружения в геймдев. На хакатоне «Колледж Фест» студентки-дизайнеры с нуля собрали концепцию игры. Дарья Бакушина, Вероника Змовик и Евгения Плецер прописали сценарий, продумали игровые механики, отрисовали визуал и забрали сразу 1-е и 2-е места',
     images: [
       {
-        src: 'src/assets/images/dynasty.jpg',
+        src: images.dynasty,
         alt: 'Концепт-арт сюжета игры',
       },
       {
-        src: 'src/assets/images/dynasty.jpg',
+        src: images.dynasty,
         alt: 'Персонажи игры',
       },
       {
-        src: 'src/assets/images/dynasty.jpg',
+        src: images.dynasty,
         alt: 'Локация штаба династии',
       },
     ],
@@ -92,15 +93,15 @@ const tabs: TeacherCaseTab[] = [
       'Одно дело — нарисовать красивую упаковку на экране, другое — понять, как она будет выглядеть в жизни. Чтобы показать студентам реальное производство, преподаватель организовала выезд в типографию «Быстрый цвет». Ребята своими глазами увидели работу печатников, процесс ламинации и вырубки, а главное — разобрали десятки образцов готовой упаковки',
     images: [
       {
-        src: 'src/assets/images/work.jpg',
+        src: images.work2,
         alt: 'Цех типографии «Быстрый цвет»',
       },
       {
-        src: 'src/assets/images/work.jpg',
+        src: images.work,
         alt: 'Студенты у печатного станка',
       },
       {
-        src: 'src/assets/images/work.jpg',
+        src: images.work3,
         alt: 'Образцы готовой упаковки',
       },
     ],
@@ -119,7 +120,7 @@ const tabs: TeacherCaseTab[] = [
     ],
     images: [
       {
-        src: 'src/assets/images/outlet.jpg',
+        src: images.outlet,
         alt: 'Работа команды над макетами для «Розетки»',
       },
     ],
