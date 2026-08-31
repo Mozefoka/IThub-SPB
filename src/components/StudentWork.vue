@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import ButtonCta from '@/components/ui/ButtonCta.vue'
 
 interface StudenWorkItem {
   id: number

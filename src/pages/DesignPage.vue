@@ -11,7 +11,7 @@ import BaseFaq from '@/components/BaseFaq.vue'
 
 <template>
   <WorkSlider title="Твои работы будут говорить за тебя" :works="workItems" />
-  <SuccessStories :cards="designSuccessStories" active="active" />
+  <SuccessStories :cards="designSuccessStories" :active=true />
   <TeacherCases />
   <StudentWork title="Вы только посмотрите на проекты наших ребят" />
   <StudyProgram :cases="designCases" zoom="zoom" container="wide" :black="true" />
