@@ -121,7 +121,7 @@ const headlineStyle = (index: number) => {
     class="success-stories"
     :style="{ '--pin-length': `${pinLength}px`, '--wheel-radius': `${WHEEL_RADIUS}px` }"
   >
-    <div class="success-stories__stage" :class="`success-stories__stage--${props.active}`">
+    <div class="success-stories__stage" :class="{ 'success-stories__stage--bg': props.active }">
       <div class="success-stories__headlines" aria-hidden="true">
         <div
           v-for="(story, index) in props.cards"
@@ -132,7 +132,7 @@ const headlineStyle = (index: number) => {
           <h2
             v-if="index === 0"
             class="success-stories__title"
-            :class="`success-stories__title--${props.active}`"
+            :class="{ 'success-stories__title--size': props.active }"
           >
             {{ props.title }}
           </h2>
@@ -156,7 +156,10 @@ const headlineStyle = (index: number) => {
               <img :src="story.photo" alt="Студент" />
             </div>
 
-            <div class="success-stories__card-panel" :class="`success-stories__card-panel--${active}`">
+            <div
+              class="success-stories__card-panel"
+              :class="{ 'success-stories__card-panel--change': props.active }"
+            >
               <p class="success-stories__card-panel-name">
                 {{ story.studentName }}
               </p>
@@ -254,7 +257,7 @@ const headlineStyle = (index: number) => {
       transparent 70%
     );
 
-    &--active {
+    &--bg {
       background: radial-gradient(
         ellipse 40% 30% at 50% 30%,
         rgb(155 37 237 / 0.6) 30%,
@@ -274,7 +277,7 @@ const headlineStyle = (index: number) => {
     padding-top: 20px;
     margin-bottom: 20px;
 
-    &--active {
+    &--size {
       max-width: 330px;
       font-weight: 400;
       opacity: 1;
@@ -419,7 +422,7 @@ const headlineStyle = (index: number) => {
       max-width: 290px;
     }
 
-    &--active {
+    &--change {
       max-width: 600px;
       align-items: flex-start;
       border-top: 1px solid;
@@ -428,9 +431,9 @@ const headlineStyle = (index: number) => {
       text-align: left;
       padding: 20px 0 0 0;
 
-        @media (max-width: 729px) {
-          max-width: 300px;
-        }
+      @media (max-width: 729px) {
+        max-width: 300px;
+      }
     }
   }
 
