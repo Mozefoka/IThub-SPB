@@ -120,6 +120,7 @@ const getMaxHeight = (index: number, id: number) => {
 @use '@/styles/variables' as *;
 
 .faq {
+  margin-bottom: $margin-bottom;
 
   &__image {
     max-width: 320px;
